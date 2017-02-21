@@ -1,0 +1,52 @@
+#Taran Ivan 2KN-B lab1 Abstract factory
+
+class AircraftFactory(object):
+    def body(self):
+        raise NotImplementedError()
+
+    def shassi(self):
+        raise NotImplementedError()
+
+
+class Body(object):
+    def __init__(self, name):
+        self._name = name
+
+    def __str__(self):
+        return self._name
+
+
+class Shassi(object):
+    def __init__(self, name):
+        self._name = name
+
+    def __str__(self):
+        return self._name
+
+
+class FactoryPassenger(AircraftFactory):
+    def body(self):
+        return Body('Passenger-oriented')
+
+    def shassi(self):
+        return Shassi('6-wheel')
+
+
+class FactoryCargo(AircraftFactory):
+    def body(self):
+        return Body('Cargo-oriented')
+
+    def shassi(self):
+        return Shassi('10-wheel')
+
+
+def select_factory(n):
+    if n == 0:
+        return FactoryPassenger()
+    elif n == 1:
+        return FactoryCargo()
+
+
+factory = select_factory(0)
+print(factory.body())
+print(factory.shassi())
