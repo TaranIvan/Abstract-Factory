@@ -1,0 +1,16 @@
+class Singleton(object):
+    __instance = None
+
+    @staticmethod
+    def inst():
+        if Singleton.__instance == None:
+            Singleton.__instance = Singleton()
+        return Singleton.__instance
+
+    def __init__(self):
+        print("Constructor called!")
+
+
+a = Singleton.inst()
+b = Singleton.inst()
+print(a is b)
