@@ -1,0 +1,13 @@
+def decorator(func):
+    def wrapper():
+        print('Здравствуйте, Иван')
+        func()
+        print('Здравствуйте, 18')
+    return wrapper
+
+@decorator
+def show():
+    print('Сколько Вам лет?')
+
+#show = decorator(show)
+show()
